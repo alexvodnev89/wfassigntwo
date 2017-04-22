@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170421195115) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170421195115) do
     t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",             default: false
+    t.boolean  "admin",             default: true
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
